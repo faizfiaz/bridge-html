@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Failed Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-failed {
+            color: #FF0000; /* Red color for failure */
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .btn-back {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #FF0000; /* Red color for failure */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        function postFailureMessage() {
+            // Send a failure message to the parent window
+            window.parent.postMessage("failure-service-integrate", "*");
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="icon-failed">&#10060;</div> <!-- Use a cross mark for failure -->
+        <div class="title">Data submission failed, please try again.</div>
+        <a href="#" class="btn-back" onclick="postFailureMessage()">Return to application</a>
+    </div>
+</body>
+</html>
